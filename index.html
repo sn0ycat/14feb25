@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Heart</title>
+  </head>
+  <body>
+    <h2 class="fixed-center">Хочешь открыть валентинку?</h2>
+    <div class="back"></div>
+    <div class="love"></div>
+    <div class="love-1"></div>
+    <div class="love-2"></div>
+    <div class="overlay" id="overlay"></div>
+
+    <button class="button" id="openSecondPage">Да</button>
+    <button class="button moving-button" id="movingButton">Нет</button>
+
+    <script>
+      const movingButton = document.getElementById('movingButton');
+      const button = document.getElementById('openSecondPage');
+      const overlay = document.getElementById('overlay');
+
+      movingButton.addEventListener('mouseover', function() {
+        const randomX = Math.random() * (window.innerWidth - 100);
+        const randomY = Math.random() * (window.innerHeight - 50);
+        movingButton.style.left = randomX + 'px';
+        movingButton.style.top = randomY + 'px';
+      });
+      movingButton.addEventListener('click', function() {
+        const randomX = Math.random() * (window.innerWidth - 100);
+        const randomY = Math.random() * (window.innerHeight - 50);
+        movingButton.style.left = randomX + 'px';
+        movingButton.style.top = randomY + 'px';
+      });
+
+      button.addEventListener('click', () => {
+            overlay.style.display = 'block';
+            setTimeout(() => {
+                overlay.classList.add('active');
+            }, 10);
+
+            setTimeout(() => {
+                window.location.href = 'heart/heart.html';
+            }, 2000);
+        });
+    </script>
+
+    
+  </body>
+</html>
